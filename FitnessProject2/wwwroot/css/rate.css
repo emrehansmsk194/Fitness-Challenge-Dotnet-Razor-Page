@@ -1,0 +1,99 @@
+
+#rate-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    margin: 50px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.rate-form, .stats, .feedbacks {
+    margin-bottom: 20px;
+}
+
+.rate-stars {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rate-stars i {
+    font-size: 2em;
+    color: #ffcc00;
+    margin: 0 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#button1 {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+#button1:hover {
+    background-color: #0056b3;
+}
+
+.stats, .feedbacks {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.feedbacks ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.feedbacks ul li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.feedbacks ul li:last-child {
+    border-bottom: none;
+}
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.card-body {
+    padding: 20px;
+}
+.card-title {
+    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #d63384;
+    padding-bottom: 5px;
+}
+.card-subtitle {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}

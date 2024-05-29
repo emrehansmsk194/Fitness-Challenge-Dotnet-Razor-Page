@@ -1,0 +1,67 @@
+body{
+    background-color: #ebc5c5;
+    background-image: url("/images/index-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+.join-challenge {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.join-challenge h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d63384; /* Pink color matching the background */
+}
+
+.join-challenge p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9); 
+}
+
+#join-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #d63384; 
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+h2{
+    
+    color: #d63384; 
+}
+
+.submit-button:hover {
+    background-color: #c82373; 
+}

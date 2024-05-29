@@ -1,0 +1,92 @@
+body{
+    
+    background-color: #ebc5c5;
+    background-image: url("/images/index-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h3{
+margin-left: 130px;
+}
+.row{
+padding-left: 80px;
+padding-bottom: 20px;
+}
+table{
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 20px 0;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+th,tr{
+    border: 1px solid black;
+    background-color: white;
+    color: #d63384;
+    text-align: center;
+
+}
+
+#profileContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 800px;
+    height: 800px;
+}
+
+.profile-details {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.profile-details h2 {
+    margin: 0 0 10px;
+}
+
+.profile-details p {
+    margin: 0;
+    color: #666;
+}
+
+.profile-actions {
+    text-align: right;
+}
+
+.profile-actions button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.profile-actions button:hover {
+    background-color: #45a049;
+}
+.bio{
+    width: 100px;
+}

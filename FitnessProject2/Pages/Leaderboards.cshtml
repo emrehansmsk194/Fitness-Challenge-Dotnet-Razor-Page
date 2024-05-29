@@ -1,0 +1,85 @@
+﻿@page
+@model MyApp.Namespace.LeaderboardsModel
+@{
+    ViewData["Title"] = "Leaderboards";
+}
+<link rel="stylesheet" href="~/css/leaderboards.css">
+<style>
+ body{
+    background-color: #ebc5c5;
+    background-image: url("/images/index-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<h2>All Challenges Leaderboards</h2>
+<div class="search-container">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search for a challenge...">
+    <button onclick="searchChallenges()" class="search-button">Search</button>
+</div>
+
+<div id="leaderboardContainer">
+@if (Model.ChallengesWithLeaderboards != null && Model.ChallengesWithLeaderboards.Any())
+{
+    @foreach (var challengeLeaderboard in Model.ChallengesWithLeaderboards)
+    {
+        <div class = "leaderboard-section" data-challenge = "@challengeLeaderboard.Challenge.Title.ToLower()">
+        <h3>@challengeLeaderboard.Challenge.Title</h3>
+
+        @if (challengeLeaderboard.LeaderboardEntries != null && challengeLeaderboard.LeaderboardEntries.Any())
+        {
+            <table class="table leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @{
+                    var rank = 1;
+                    foreach (var entry in challengeLeaderboard.LeaderboardEntries)
+                    {
+                        <tr>
+                            <td>@rank</td>
+                            <td>@entry.User.UserName</td>
+                            <td>@entry.Score</td>
+                        </tr>
+                        rank++;
+                    }
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No entries found for this challenge.</p>
+        }
+        </div>
+       
+    }
+}
+else
+{
+    <p>No challenges found.</p>
+}
+</div>
+<script>
+    function searchChallenges() {
+        var input, filter, container, sections, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toLowerCase();
+        container = document.getElementById("leaderboardContainer");
+        sections = container.getElementsByClassName("leaderboard-section");
+
+        for (i = 0; i < sections.length; i++) {
+            var challengeTitle = sections[i].getAttribute("data-challenge");
+            if (challengeTitle.includes(filter)) {
+                sections[i].style.display = "";
+            } else {
+                sections[i].style.display = "none";
+            }
+        }
+    }
+</script>

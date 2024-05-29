@@ -1,0 +1,239 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="~/css/index.css">
+    <link rel="stylesheet" href="~/css/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="~/css/carousel.css">
+     <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.rateyo.min.js"></script>
+    
+</head>
+<body>
+  <style>
+    .carousel-item {
+        background-color: #f8f9fa; /* Burada istediğiniz rengi belirtebilirsiniz */
+        color: #000; /* Metin rengi de belirtmek isterseniz */
+    }
+</style>
+<main>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+       <img src="/images/background2.webp" width="100%" height="100%" alt="Fitness Challenge">
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1 style="color: black;"> View Challenges</h1>
+            <p class="opacity-75" style="font-family: Arial, Helvetica, sans-serif;">If you like to participate in fun and competitive challenges, this is the place for you.</p>
+            <p><a class="btn btn-lg btn-primary" href="/ViewChallenges">Browse All Challenges</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+       <img src="/images/leaderboards.webp" width="100%" height="100%" alt="Fitness Challenge">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1 style="color: black;">Leaderboards.</h1>
+            <p>Click if you want to see the best performing contestans.</p>
+            <p><a class="btn btn-lg btn-primary" href="/Leaderboards">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/images/rates2.webp" width="100%" height="100%" alt="Fitness Challenge">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1 style="color: black;">Rate and Comment on Challenges.</h1>
+            <p style="font-family: Arial, Helvetica, sans-serif;">Rate for Challenges and see users' feedback</p>
+            <p><a class="btn btn-lg btn-primary" href="/UserRates">See User Rates</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">Competition for the most kilometres covered by bicycle in one week. <span class="text-body-secondary">  <a asp-page="/Challenges/Details" asp-route-id="3">Take up the Challenge.</a></span></h2>
+        <p class="lead">A GPS and distance measuring device will be placed on each user's bike to calculate the distance traveled by the participants. In this 1-week challenge, the user who covers the most distance with their bike wins the competition.</p>
+      
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bike image" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Bike Image</title>
+    <image href="/images/Bike.jpg" width="500" height="500" />
+</svg>
+
+      </div>
+        <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Who can get the most steps in two weeks? <span class="text-body-secondary">  <a asp-page="/Challenges/Details" asp-route-id="1">Join the Challenge. </a> </span></h2>
+        <p class="lead">This challenge will last for 14 days. At the end of the competition, the participant with the most steps wins.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bike image" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <title>Walk Image</title>
+    <image href="/images/walk.jpg" width="500" height="500" />
+</svg>
+
+      </div>
+    </div>
+
+
+    
+
+   
+
+    
+
+ 
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+
+</main>
+@* <div class="welcome-section">
+    <h1>Welcome to Fitness Challenges!</h1>
+    <p>
+        Ready to elevate your fitness journey? You've come to the right place! At Fitness Challenges, we bring you a diverse array of exciting and motivating fitness challenges designed to push your limits and enhance your health. Whether you're looking to lose weight, increase your stamina, or just add some fun to your workouts, we have something for everyone.
+    </p>
+    <p>
+        Join a community of fitness enthusiasts, participate in challenges, track your progress, and compare your achievements with others. It’s not just about competition; it’s about setting personal goals and surpassing them. Explore our popular challenges below and start your fitness journey today! 
+    </p>
+    <p>
+        Dont just dream about a healthier life—make it a reality with Fitness Challenges!
+    </p>
+</div> *@
+
+
+<div >
+    <h3 >Popular Challenges</h3>
+    <div class="table-div">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Rating</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PopularChallenges)
+            {
+                <tr>
+                    <td>@item.Challenge.Title</td>
+                    <td>@item.Challenge.Category</td>
+                    <td>
+                        <div class="rateYo" data-rating="@item.AverageRating"></div>
+                    </td>
+                    <td>
+                        <a asp-page="/Challenges/Details" asp-route-id="@item.Challenge.Id" class="btn btn-primary">View Challenge</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<h2 style="text-align: center;">Do you want to create a new Challenge? </h2>
+<section>
+    <h2 id="header-2">Create a New Challenge</h2>
+    <form method="post" id="form1">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="NewChallenge.Title"></label>
+            <input asp-for="NewChallenge.Title" class="form-control" />
+            <span asp-validation-for="NewChallenge.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewChallenge.Category"></label>
+            <input asp-for="NewChallenge.Category" class="form-control" />
+            <span asp-validation-for="NewChallenge.Category" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewChallenge.Instructions"></label>
+            <input asp-for="NewChallenge.Instructions" class="form-control" />
+            <span asp-validation-for="NewChallenge.Instructions" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewChallenge.Difficulty"></label>
+            <select asp-for="NewChallenge.Difficulty" class="form-control">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <span asp-validation-for="NewChallenge.Difficulty" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewChallenge.StartDate"></label>
+            <input asp-for="NewChallenge.StartDate" type="date" class="form-control" />
+            <span asp-validation-for="NewChallenge.StartDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewChallenge.EndDate"></label>
+            <input asp-for="NewChallenge.EndDate" type="date" class="form-control" />
+            <span asp-validation-for="NewChallenge.EndDate" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" id="create-button">Create Challenge</button>
+    </form>
+</section>
+</body>
+@section Scripts{ 
+ @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+<script>
+    $(function () {
+        $('.rateYo').each(function () {
+            var rating = $(this).data('rating');
+            $(this).rateYo({
+                rating: rating,
+                readOnly: true,
+                starWidth: "20px"
+            });
+        });
+    });
+</script>
+
+</html>

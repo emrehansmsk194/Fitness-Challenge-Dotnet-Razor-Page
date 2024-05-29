@@ -1,0 +1,87 @@
+﻿@page "{id}"
+@model MyApp.Namespace.RateModel
+@{
+    ViewData["Title"] = "Rate Page";
+}
+
+<h2 class="title">Rate Page</h2>
+
+<link href="~/css/jquery.rateyo.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/rate.css">
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/jquery.rateyo.min.js"></script>
+
+<div class="rate-container" id="rate-container">
+    <form method="post" class="rate-form" asp-page-handler="PostAsync">
+     
+        <div>
+            <label for="comment">Your Comment:</label>
+            <textarea id="comment" name="comment" class="form-control"></textarea>
+            <br>
+             <div id="rateIt" class="rate-stars"></div>
+               <br>
+            <button type="submit" class="btn btn-primary" id="button1">Rate it</button>
+            <input name="_rate" type="hidden" id="rating" />
+        </div>
+      
+        
+    </form>
+   
+    <div class="stats">
+         @if (Model.UserFeedbacks != null && Model.UserFeedbacks.Any()){
+        <h3>Average Ratings and Statistics</h3>
+        <p>Average Rating for this Challenge: @Model.AverageRating / 5</p>
+        <p>This challenge has voted on @Model.TotalRatings times.</p>
+        }
+    </div>
+
+    <div class="feedbacks">
+        <h3>User Feedbacks</h3>
+        <ul>
+            @if (Model.UserFeedbacks != null && Model.UserFeedbacks.Any())
+            {
+                @foreach (var feedback in Model.UserFeedbacks)
+                {
+                    <li>
+                        <strong>@feedback.Userid?.UserName:</strong> @feedback.Comment (Rate: @feedback.Rate)
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+<style>
+body{
+    background-color: #ebc5c5;
+    background-image: url("/images/index-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+</style>
+@section Scripts{
+  @{
+     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+     }
+}
+<script>
+ $(function () {
+
+        var $rateYo = $("#rateIt").rateYo({
+            rating: 0,
+            fullStar: true,
+            onChange: function (rating, rateYoInstance) {
+                $('#rating').val(rating);
+            }
+        });
+        
+        $("#getRating").click(function () {
+
+            /* get rating */
+            var rating = $rateYo.rateYo("rating");
+
+            window.alert("You give " + rating + " rate!");
+        });
+    });
+ 
+</script>

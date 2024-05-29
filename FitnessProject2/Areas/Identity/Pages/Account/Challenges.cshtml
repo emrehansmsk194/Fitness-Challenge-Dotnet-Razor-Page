@@ -1,0 +1,42 @@
+﻿@page
+@model MyApp.Namespace.ChallengesModel
+@{
+    ViewData["Title"] = "My Challenges";
+}
+<link rel="stylesheet" href="~/css/profile.css">
+<h2>My Challenges</h2>
+
+@if(Model.ChallengesList.Count == 0)
+{
+    <p>You have not joined any challenges yet.</p>
+}
+else{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Difficulty</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Score</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var challenge in Model.ChallengesList){
+                <tr>
+                    <td>@challenge.Title</td>
+                    <td>@challenge.Category</td>
+                    <td>@challenge.Difficulty</td>
+                    <td>@challenge.StartDate.ToShortDateString()</td>
+                    <td>@challenge.EndDate.ToShortDateString()</td>
+                    <td>@challenge.Score ?? "Not Submitted"</td>
+                    <td>
+                        <a asp-page="/Challenges/Details" asp-route-id="@challenge.Id" class="btn btn-primary">View</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

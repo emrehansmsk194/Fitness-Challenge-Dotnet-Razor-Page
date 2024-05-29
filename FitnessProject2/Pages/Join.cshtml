@@ -1,0 +1,31 @@
+﻿@page
+@model MyApp.Namespace.JoinModel
+@{
+    ViewData["Title"] = "Join Challenge";
+}
+
+<!-- CSS dosyasını dahil etme -->
+<link rel="stylesheet" href="~/css/joinpage.css">
+
+
+
+<section class="join-challenge">
+    <h2>Join Challenge</h2>
+    <div class="challenge-details">
+        <h3>@Model.Challenge.Title</h3>
+        <p>Category: @Model.Challenge.Category</p>
+        <p>Difficulty: @Model.Challenge.Difficulty</p>
+        <p>Period: @Model.Challenge.StartDate.ToShortDateString() - @Model.Challenge.EndDate.ToShortDateString()</p>
+        <p>Instructions: @Model.Challenge.Instructions</p>
+    </div>
+    
+    <form method="post">
+    <button type="submit" class="btn btn-primary" id="join-button">Join Challenge</button>
+</form>
+
+</div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

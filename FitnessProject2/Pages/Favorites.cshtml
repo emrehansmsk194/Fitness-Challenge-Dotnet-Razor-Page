@@ -1,0 +1,64 @@
+﻿@page
+@model MyApp.Namespace.FavoritesModel
+@{
+}
+<style>
+body{
+    background-color: #ebc5c5;
+    background-image: url("/images/index-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table{
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 20px 0;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+th,tr{
+    border: 1px solid black;
+    background-color: white;
+    color: #d63384;
+    text-align: center;
+
+}
+</style>
+@if (Model.FavoriteChallenges != null && Model.FavoriteChallenges.Any())
+{
+    <h3>Favorite Challenges</h3>
+        <table class="table">
+           <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Difficulty</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+           </thead>
+           <tbody>
+            @foreach(var challenge in Model.FavoriteChallenges)
+            {
+               <tr>
+                <td>@challenge.Title</td>
+                <td>@challenge.Category</td>
+                <td>@challenge.Difficulty</td>
+                <td>@challenge.StartDate.ToShortDateString()</td>
+                <td>@challenge.EndDate.ToShortDateString()</td>
+               </tr>
+            }
+            </tbody>
+        </table>
+        }
+        else 
+        {
+            <p>You have no favorite challenges.</p>
+        }
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

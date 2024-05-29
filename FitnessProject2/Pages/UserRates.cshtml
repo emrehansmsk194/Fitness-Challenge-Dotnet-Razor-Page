@@ -1,0 +1,88 @@
+﻿@page
+@model MyApp.Namespace.UserRatesModel
+@{
+     ViewData["Title"] = "Rate Challenge";
+
+    ViewBag.Ratings = string.Join(", ", Model.Ratings);
+}
+<link href="~/css/jquery.rateyo.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/rate.css">
+
+<style>
+body{
+    background-color: #ebc5c5;
+    background-image: url("/images/index-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}  
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.card-body {
+    padding: 20px;
+}
+.card-title {
+    color: #d63384;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #d63384;
+    padding-bottom: 5px;
+}
+.card-subtitle {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+.rateYo {
+    text-align: center;
+    padding: 10px 0;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        @for (int i = 0; i < Model.ChallengeList.Count; i++)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">@Model.ChallengeList[i].Title</h4>
+                        <h6 class="card-subtitle">@Model.ChallengeList[i].Instructions</h6>
+                        <h6 class="card-subtitle">@Model.ChallengeList[i].Category</h6>
+                        <h6 class="card-subtitle">@Model.ChallengeList[i].Difficulty</h6>
+                        <h6 class="card-subtitle">@Model.ChallengeList[i].StartDate.ToShortDateString() - @Model.ChallengeList[i].EndDate.ToShortDateString()</h6>
+                        <form method="post">
+                            <button type="submit" class="btn btn-primary" asp-page="Rate" asp-route-id="@Model.ChallengeList[i].Id">Rate it!</button><br>
+                        </form>
+                    </div>
+                    <div class="rateYo" data-rating="@Model.Ratings[i]"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts{
+  @{
+     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+     }
+     <script src="~/js/jquery.min.js"></script>
+     <script src="~/js/jquery.rateyo.min.js"></script>
+     <script type="text/javascript">
+        $(function () {
+            $('.rateYo').each(function() {
+                var rating = $(this).data('rating');
+                $(this).rateYo({
+                    rating: rating,
+                    readOnly: true
+                });
+            });
+        });
+    </script>
+}
+
+

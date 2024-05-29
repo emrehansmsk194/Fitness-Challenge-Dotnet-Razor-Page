@@ -1,0 +1,55 @@
+﻿@page
+@model MyApp.Namespace.ViewChallengesModel
+@{
+    ViewData["Title"] = "Challenges";
+}
+<head>
+    <link rel="stylesheet" href="~/css/challengeslist.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link href="~/css/jquery.rateyo.min.css" rel="stylesheet" />
+</head>
+@section Scripts {
+    <script src="~/js/challengelists.js"></script>
+}
+<h2 id="linkheader"> <a href="#" onclick="showSearch(); return false;" >Search for Challenges</a></h2>
+
+<div id="rateIt"></div>
+<table class="table" id="table-1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Difficulty</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var challenge in Model.ChallengesList){
+            <tr>
+                @if(Model.JoinedChallengeIds.Contains(challenge.Id)){
+                    <td> @challenge.Title </td>
+                }
+                else{
+        
+                    <td><a asp-page="/Join" asp-route-id="@challenge.Id" class="title-links">@challenge.Title </a></td>
+                }
+                
+                <td>@challenge.Category</td>
+                <td>@challenge.Difficulty</td>
+                <td>@challenge.StartDate.ToShortDateString()</td>
+                <td>@challenge.EndDate.ToShortDateString()</td>
+                <td>
+                    @if (Model.JoinedChallengeIds.Contains(challenge.Id)){
+                         <span class="btn btn-secondary" id="join-button">Joined</span>
+                    }
+                    else{
+                    <a asp-page="/Join" asp-route-id="@challenge.Id" class="btn btn-primary" id="join-button">Join</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>Go back to <a asp-page="/Index">Home Page</a></p>
